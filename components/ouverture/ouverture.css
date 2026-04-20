@@ -1,0 +1,95 @@
+/* IMAGE BREAK */
+.image-break {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 55% 100%, 50% calc(100% - 28px), 45% 100%, 0% 100%);
+}
+.image-break img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.image-break-triangle { display: none; }
+
+@media (min-width: 480px) {
+  .image-break { height: 250px; clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 56% 100%, 50% calc(100% - 36px), 44% 100%, 0% 100%); }
+}
+@media (min-width: 768px) {
+  .image-break { height: 320px; clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 57% 100%, 50% calc(100% - 48px), 43% 100%, 0% 100%); }
+}
+@media (min-width: 1200px) {
+  .image-break { height: 420px; clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 58% 100%, 50% calc(100% - 60px), 42% 100%, 0% 100%); }
+}
+
+/* OUVERTURE */
+.ouverture {
+  position: relative;
+  background: var(--dark);
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 380px;
+  padding: 80px 20px;
+  isolation: isolate;
+}
+
+.ouverture-grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(var(--grid-color) 1px, transparent 1px), linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+.ouverture-text { position: relative; z-index: 2; text-align: center; }
+
+.ouverture-line1, .ouverture-line2 {
+  display: block;
+  font-family: var(--font-display);
+  line-height: 0.88;
+  letter-spacing: -0.01em;
+}
+
+.ouverture-line1 {
+  font-size: clamp(42px, 13vw, 96px);
+  color: var(--teal);
+  animation: neonPulse 3s ease-in-out infinite;
+}
+
+.ouverture-line2 {
+  font-size: clamp(34px, 10vw, 78px);
+  color: transparent;
+  -webkit-text-stroke: 2px var(--teal);
+  animation: neonPulse 3s ease-in-out infinite 0.4s;
+}
+
+/* NUAGES */
+.cloud { position: absolute; pointer-events: none; z-index: 4; filter: drop-shadow(0 0 8px rgba(255,255,255,0.15)); }
+
+.cloud.c1 { width: 130px; left: -40px; top: 50%; transform: translateY(-50%); animation: cloudFloat 6s ease-in-out infinite; }
+.cloud.c2 { width: 130px; right: -40px; top: 50%; transform: translateY(-50%); animation: cloudFloat 6s ease-in-out infinite 1.8s; }
+.cloud.c3 { display: none; }
+
+@media (min-width: 480px) { .cloud.c1 { width: 150px; } .cloud.c2 { width: 150px; } }
+
+@media (min-width: 768px) {
+  .ouverture { min-height: 420px; padding: 80px 40px; }
+  .cloud.c1 { width: 0; left: -9999px; top: 0; transform: none; }
+  .cloud.c2 { width: 300px; right: -60px; top: 60px; transform: none; animation: cloudFloat 6s ease-in-out infinite; }
+  .cloud.c3 { display: block; width: 160px; right: 30px; top: 270px; transform: none; animation: cloudFloat 6s ease-in-out infinite 1.2s; }
+}
+
+@media (min-width: 1200px) {
+  .ouverture { min-height: 500px; padding: 100px 64px; }
+  .cloud.c1 { display: block; width: 380px; left: -80px; top: 80px; transform: none; animation: cloudFloat 6s ease-in-out infinite 0.5s; }
+  .cloud.c2 { width: 400px; right: -60px; top: 30px; transform: none; }
+  .cloud.c3 { width: 260px; right: 50px; top: 300px; transform: none; }
+}
+
+@keyframes neonPulse {
+  0%, 100% { text-shadow: 0 0 18px rgba(0,229,209,0.55), 0 0 50px rgba(0,229,209,0.2); }
+  50%       { text-shadow: 0 0 36px rgba(0,229,209,0.9), 0 0 90px rgba(0,229,209,0.4); }
+}
+@keyframes cloudFloat {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-12px); }
+}
