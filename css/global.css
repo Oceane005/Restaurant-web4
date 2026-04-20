@@ -1,0 +1,54 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--dark);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; }
+a   { text-decoration: none; }
+
+.jp-title {
+  display: block;
+  font-family: var(--font-jp);
+  font-size: 17px;
+  color: var(--text);
+  letter-spacing: 0.15em;
+}
+
+.latin-title {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0.22em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .jp-title    { font-size: 20px; }
+  .latin-title { font-size: 12px; }
+}
+
+@media (min-width: 1200px) {
+  .jp-title    { font-size: 22px; }
+  .latin-title { font-size: 13px; }
+}
+
+/* Fade-in au scroll */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

@@ -1,0 +1,14 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Éditeurs
+.vscode/
+.idea/
+
+# PHP
+*.log
+config.php
+
+# Node
+node_modules/
