@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Kimochi';
+  src: url('../fonts/kimochi.otf') format('opentype'),
+       url('../fonts/kimochi.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Radets';
+  src: url('../fonts/radets-regularitalic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
