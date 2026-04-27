@@ -1,14 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // // ── HEADER : fond opaque au scroll ──
-  // const header = document.querySelector('.header');
-  // if (header) {
-  //   window.addEventListener('scroll', () => {
-  //     header.style.background = window.scrollY > 60
-  //       ? 'rgba(6,7,15,0.97)'
-  //       : 'linear-gradient(180deg, rgba(6,7,15,0.92) 0%, transparent 100%)';
-  //   });
-  // }
+  // ── HEADER : fond opaque au scroll ──
+  const header = document.querySelector('.header');
+  if (header) {
+    window.addEventListener('scroll', () => {
+      header.style.background = window.scrollY > 60
+        ? 'rgba(6,7,15,0.97)'
+        : 'linear-gradient(180deg, rgba(6,7,15,0.92) 0%, transparent 100%)';
+    });
+  }
 
   // ── HERO : vidéo sur tablet+, photo sur mobile ──
   const heroPhoto = document.querySelector('.hero-photo');
