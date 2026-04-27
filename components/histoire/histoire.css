@@ -43,7 +43,7 @@
 
 @media (min-width: 1200px) {
   .histoire { padding: 100px 64px; }
-  .histoire-inner .daruma { width: 300px; }
+  .histoire-inner .daruma { width: 400px; }
   .histoire-inner p { font-size: 14px; max-width: 420px; }
   .histoire-inner { gap: 40px; }
 }

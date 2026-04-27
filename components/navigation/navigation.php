@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/Restaurant-web4/css/fonts.css">
+
 <nav class="nav-overlay" id="navOverlay" aria-hidden="true">
   <button class="nav-close" id="navClose" aria-label="Fermer le menu">✕</button>
   <ul class="nav-links">

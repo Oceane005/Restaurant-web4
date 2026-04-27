@@ -25,13 +25,17 @@
 <body>
 
 <header class="header">
-  <a href="/Restaurant-web4/">
-    <img src="/Restaurant-web4/img/logo.png" alt="Logo Iroshi Takahashi" class="logo">
-  </a>
-  <button class="burger" aria-label="Menu">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
-</header>
+  <img src="/Restaurant-web4/img/hero.png" alt="" class="header-bg-photo">
 
+  <div class="header-overlay"></div>
+  <div class="header-bar">
+    <a href="/Restaurant-web4/">
+      <img src="/Restaurant-web4/img/logo.png" alt="Logo Iroshi Takahashi" class="logo">
+    </a>
+    <button class="burger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
