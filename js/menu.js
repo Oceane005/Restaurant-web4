@@ -1,10 +1,4 @@
-// ============================================
-// MENU.JS — Animations scroll pour les items
-// ============================================
-
 document.addEventListener('DOMContentLoaded', () => {
-
-  // ── Vidéo hero menu : joue sur tablet+, photo sur mobile ──
   const heroPhoto = document.querySelector('.menu-hero-photo');
   const heroVideo = document.querySelector('.menu-hero-video');
 
@@ -25,12 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
   handleMenuHero();
   window.addEventListener('resize', handleMenuHero);
 
-  // ── Fade-in stagger des items au scroll ──
   const menuItems = document.querySelectorAll('.menu-item');
-
   if (menuItems.length > 0) {
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           const index = Array.from(menuItems).indexOf(entry.target);
           entry.target.style.animationDelay = `${index * 0.07}s`;
@@ -39,8 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     }, { threshold: 0.12 });
-
     menuItems.forEach(item => observer.observe(item));
   }
-
 });

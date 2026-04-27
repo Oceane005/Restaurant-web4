@@ -1,0 +1,84 @@
+.chef {
+  background: var(--dark);
+  text-align: center;
+  padding: 40px 20px 60px;
+}
+
+.chef-title-block { margin-bottom: 28px; }
+
+.chef-jp {
+  font-family: var(--font-jp);
+  font-size: 16px;
+  color: var(--text);
+  letter-spacing: 0.2em;
+  margin-bottom: 4px;
+}
+
+.chef-name {
+  font-family: var(--font-body);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--text);
+}
+
+.chef-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.chef-img {
+  width: 130px; height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--teal);
+  box-shadow: 0 0 0 6px rgba(0,229,209,0.12), 0 0 30px rgba(0,229,209,0.25);
+  flex-shrink: 0;
+  order: 2;
+}
+
+.daruma { width: 160px; height: auto; opacity: 0.85; flex-shrink: 0; }
+.daruma-left  { order: 1; }
+.daruma-right { order: 3; }
+
+.chef-desc {
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--text-muted);
+  max-width: 320px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+@media (min-width: 480px) {
+  .chef-img { width: 150px; height: 150px; }
+  .chef-desc { font-size: 13px; max-width: 360px; }
+  .daruma { width: 120px; }
+}
+
+@media (min-width: 768px) {
+  .chef { padding: 56px 40px 72px; }
+  .chef-jp { font-size: 18px; }
+  .chef-name { font-size: 26px; }
+  .chef-img { width: 180px; height: 180px; }
+  .chef-body { flex-direction: row; gap: 24px; }
+  .chef-img { order: 2; }
+  .daruma-left { order: 1; }
+  .daruma-right { order: 3; }
+  .daruma { width: 180px; }
+  .chef-desc { font-size: 13px; max-width: 480px; }
+}
+
+@media (min-width: 1200px) {
+  .chef { padding: 72px 64px 90px; }
+  .chef-jp { font-size: 20px; }
+  .chef-name { font-size: 30px; }
+  .chef-img { width: 210px; height: 210px; }
+  .chef-body { gap: 40px; }
+  .daruma { width: 300px; }
+  .chef-desc { font-size: 14px; max-width: 580px; }
+}

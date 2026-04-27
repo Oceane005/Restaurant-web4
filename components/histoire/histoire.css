@@ -1,0 +1,49 @@
+.histoire {
+  background: var(--dark);
+  text-align: center;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  overflow: visible;
+}
+
+.histoire-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.histoire-inner .daruma { width: 160px; opacity: 0.85; flex-shrink: 0; }
+.histoire-inner .daruma:first-child { order: 1; }
+.histoire-inner p                   { order: 2; }
+.histoire-inner .daruma:last-child  { order: 3; }
+
+.histoire-inner p {
+  font-size: 12px;
+  line-height: 1.85;
+  color: var(--text-muted);
+  max-width: 280px;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .histoire { padding: 80px 40px; }
+  .histoire-inner { flex-direction: row; gap: 24px; }
+  .histoire-inner .daruma:first-child { order: unset; }
+  .histoire-inner p                   { order: unset; }
+  .histoire-inner .daruma:last-child  { order: unset; }
+  .histoire-inner .daruma { width: 180px; }
+  .histoire-inner p { font-size: 13px; max-width: 300px; }
+}
+
+@media (min-width: 1200px) {
+  .histoire { padding: 100px 64px; }
+  .histoire-inner .daruma { width: 300px; }
+  .histoire-inner p { font-size: 14px; max-width: 420px; }
+  .histoire-inner { gap: 40px; }
+}

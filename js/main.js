@@ -1,65 +1,35 @@
-// ============================================
-// IROSHI TAKAHASHI — main.js
-// ============================================
-
 document.addEventListener('DOMContentLoaded', () => {
 
   // ── HEADER : fond opaque au scroll ──
   const header = document.querySelector('.header');
+  if (header) {
+    window.addEventListener('scroll', () => {
+      header.style.background = window.scrollY > 60
+        ? 'rgba(6,7,15,0.97)'
+        : 'linear-gradient(180deg, rgba(6,7,15,0.92) 0%, transparent 100%)';
+    });
+  }
 
   // ── HERO : vidéo sur tablet+, photo sur mobile ──
   const heroPhoto = document.querySelector('.hero-photo');
   const heroVideo = document.querySelector('.hero-video');
 
-  console.log('heroPhoto:', heroPhoto);
-  console.log('heroVideo:', heroVideo);
-  console.log('window.innerWidth:', window.innerWidth);
-
-  function showVideo() {
-    console.log('showVideo() appelé');
-    heroPhoto.style.display = 'none';
-    heroVideo.style.display = 'block';
-    heroVideo.load();
-    const playPromise = heroVideo.play();
-    if (playPromise !== undefined) {
-      playPromise
-        .then(() => console.log('Vidéo en lecture'))
-        .catch(err => console.warn('Autoplay bloqué:', err));
-    }
-  }
-
-  function showPhoto() {
-    console.log('showPhoto() appelé');
-    heroVideo.style.display = 'none';
-    heroVideo.pause();
-    heroPhoto.style.display = 'block';
-  }
-
   function handleHero() {
+    if (!heroPhoto || !heroVideo) return;
     if (window.innerWidth >= 768) {
-      showVideo();
+      heroPhoto.style.display = 'none';
+      heroVideo.style.display = 'block';
+      heroVideo.load();
+      heroVideo.play().catch(() => {});
     } else {
-      showPhoto();
+      heroVideo.style.display = 'none';
+      heroVideo.pause();
+      heroPhoto.style.display = 'block';
     }
   }
 
-  if (heroVideo && heroPhoto) {
-    handleHero();
-    window.addEventListener('resize', handleHero);
-  } else {
-    console.error('Éléments hero introuvables dans le DOM');
-  }
-
-  // ── HEADER : fond opaque au scroll ──
-  if (header) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 60) {
-        header.style.background = 'rgba(6,7,15,0.97)';
-      } else {
-        header.style.background = 'linear-gradient(180deg, rgba(6,7,15,0.92) 0%, transparent 100%)';
-      }
-    });
-  }
+  handleHero();
+  window.addEventListener('resize', handleHero);
 
   // ── FADE-IN au scroll ──
   const fadeEls = document.querySelectorAll(

@@ -1,0 +1,19 @@
+.contact-btn {
+  align-self: flex-end;
+  background: var(--teal);
+  color: var(--dark);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border: none;
+  padding: 12px 32px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.contact-btn:hover {
+  background: var(--magenta);
+  color: #fff;
+}

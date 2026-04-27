@@ -1,0 +1,158 @@
+/* ============================================
+   MENU-ITEMS.CSS — Mobile First
+   768px | 1200px
+   ============================================ */
+
+.menu-section {
+  position: relative;
+  background: #06070f;
+  overflow: hidden;
+}
+
+/* Watermark daruma */
+.menu-watermark {
+  position: absolute;
+  inset: 0;
+  background-image: url('/Restaurant-web4/img/texture_daruma.png');
+  background-repeat: repeat;
+  background-size: 200px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.05;
+}
+.menu-watermark img { display: none; }
+
+/* Liste */
+.menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Item */
+.menu-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 24px 16px;
+  gap: 12px;
+  opacity: 0;
+  position: relative;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+/* Texte à gauche, image à droite par défaut */
+.menu-item-content {
+  order: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.menu-item-img-wrap {
+  order: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Alterné : image à gauche, texte à droite */
+.menu-item--reverse .menu-item-content  { order: 2; }
+.menu-item--reverse .menu-item-img-wrap { order: 1; }
+
+/* Nom */
+.menu-item-nom {
+  font-family: 'Noto Serif JP', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(16px, 5vw, 22px);
+  color: #e8e8f0;
+  line-height: 1.2;
+  margin: 0 0 6px 0;
+}
+
+/* Description */
+.menu-item-desc {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 300;
+  font-size: clamp(10px, 2.8vw, 12px);
+  color: #8888aa;
+  line-height: 1.5;
+  margin: 0 0 12px 0;
+}
+
+/* Prix */
+.menu-item-prix {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(48px, 16vw, 64px);
+  color: #ff2d78;
+  text-shadow:
+    0 0 8px rgba(255, 45, 120, 1),
+    0 0 25px rgba(255, 45, 120, 0.7),
+    0 0 50px rgba(255, 45, 120, 0.35);
+  display: block;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+/* Image ronde */
+.menu-item-img {
+  width: clamp(130px, 46vw, 170px);
+  height: clamp(130px, 46vw, 170px);
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  filter: drop-shadow(0 4px 20px rgba(0,0,0,0.6));
+  transition: transform 0.4s ease;
+}
+
+.menu-item:hover .menu-item-img {
+  transform: scale(1.05);
+}
+
+/* 768px */
+@media (min-width: 768px) {
+  .menu-section { padding: 0 32px; }
+  .menu-list    { max-width: 640px; margin: 0 auto; }
+
+  .menu-item { padding: 28px 24px; gap: 16px; }
+
+  .menu-item-nom  { font-size: clamp(20px, 3.2vw, 28px); }
+  .menu-item-desc { font-size: clamp(11px, 1.5vw, 13px); }
+  .menu-item-prix { font-size: clamp(60px, 11vw, 80px); }
+
+  .menu-item-img {
+    width: clamp(160px, 26vw, 210px);
+    height: clamp(160px, 26vw, 210px);
+  }
+}
+
+/* 1200px */
+@media (min-width: 1200px) {
+  .menu-section { padding: 0 60px; }
+  .menu-list    { max-width: 900px; margin: 0 auto; }
+
+  .menu-item { padding: 36px 40px; gap: 24px; }
+
+  .menu-item-nom  { font-size: clamp(24px, 2.4vw, 32px); }
+  .menu-item-desc { font-size: clamp(12px, 1.1vw, 15px); }
+  .menu-item-prix { font-size: clamp(72px, 7.5vw, 96px); }
+
+  .menu-item-img {
+    width: clamp(200px, 19vw, 250px);
+    height: clamp(200px, 19vw, 250px);
+  }
+}
+
+/* Animation */
+@keyframes menuItemIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.menu-item.visible {
+  animation: menuItemIn 0.5s ease both;
+}

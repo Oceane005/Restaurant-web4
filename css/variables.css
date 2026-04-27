@@ -1,0 +1,14 @@
+:root {
+  --teal:        #00e5d1;
+  --magenta:     #ff2d78;
+  --dark:        #06070f;
+  --dark-mid:    #0d0f1e;
+  --dark-card:   #10132a;
+  --purple-dark: #1a0a30;
+  --text:        #e8e8f0;
+  --text-muted:  #8888aa;
+  --grid-color:  rgba(0, 229, 209, 0.13);
+  --font-display: 'Anton', 'Impact', sans-serif;
+  --font-jp:      'Noto Serif JP', serif;
+  --font-body:    'Barlow', 'Helvetica Neue', sans-serif;
+}
