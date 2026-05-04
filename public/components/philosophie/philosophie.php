@@ -1,5 +1,5 @@
 <div class="image-break image-break-2">
-  <img src="/Restaurant-web4/img/sushi.png" alt="Sushis">
+  <img src="/img/sushi.png" alt="Sushis">
   <div class="image-break-triangle"></div>
 </div>
 

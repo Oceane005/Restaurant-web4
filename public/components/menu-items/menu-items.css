@@ -13,7 +13,7 @@
 .menu-watermark {
   position: absolute;
   inset: 0;
-  background-image: url('/Restaurant-web4/img/texture_daruma.png');
+  background-image: url('/img/texture_daruma.png');
   background-repeat: repeat;
   background-size: 200px;
   pointer-events: none;

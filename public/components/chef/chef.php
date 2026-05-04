@@ -4,9 +4,9 @@
     <h1 class="chef-name">Iroshi Takahashi</h1>
   </div>
   <div class="chef-body">
-    <img src="/Restaurant-web4/img/daruma.png" alt="" class="daruma daruma-left">
-    <img src="/Restaurant-web4/img/chef.png" alt="Portrait Iroshi Takahashi" class="chef-img">
-    <img src="/Restaurant-web4/img/daruma.png" alt="" class="daruma daruma-right">
+    <img src="/img/daruma.png" alt="" class="daruma daruma-left">
+    <img src="/img/chef.png" alt="Portrait Iroshi Takahashi" class="chef-img">
+    <img src="/img/daruma.png" alt="" class="daruma daruma-right">
   </div>
   <p class="chef-desc">
     Originaire de Tokyo, Hiroshi Takahashi s'est formé auprès de grands chefs et dans des

@@ -9,7 +9,7 @@
       <button type="submit" class="contact-btn">ENVOYER</button>
     </form>
     <div class="map-wrap">
-      <img src="/Restaurant-web4/img/map.png" alt="Carte">
+      <img src="/img/map.png" alt="Carte">
     </div>
   </div>
 </section>
