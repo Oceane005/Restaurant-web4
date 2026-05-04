@@ -1,2 +1,3 @@
 #!/bin/bash
-php -S localhost:6969 -t public
+php -S localhost:6969 
+#-t public
