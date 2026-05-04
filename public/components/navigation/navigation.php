@@ -1,4 +1,3 @@
-
 <nav class="nav-overlay" id="navOverlay" aria-hidden="true">
   <button class="nav-close" id="navClose" aria-label="Fermer le menu">✕</button>
   <ul class="nav-links">
@@ -9,5 +8,8 @@
   </ul>
   <a href="#contact" class="nav-reserver">
     <span>RÉSERVEZ</span>
+  </a>
+  <a href="/admin/connection.php" class="nav-connection">
+    <span>Connection</span>
   </a>
 </nav>

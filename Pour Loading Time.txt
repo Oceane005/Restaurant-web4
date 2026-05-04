@@ -1,0 +1,65 @@
+The 3 Root Causes (ranked by impact)
+1. Images — the biggest problem (~27 MB total)
+Your social media icons (facebook.png, twitter.png, tiktok.png, insta.png) are 2.2 MB each — that's insane for icons. They should be SVGs (a few KB at most). Here's what to do per category:
+
+Social icons → replace with free SVGs:
+
+Delete facebook.png, insta.png, twitter.png, tiktok.png
+Use inline SVGs or grab them from simpleicons.org — each becomes ~1 KB instead of 2.2 MB
+Hero/content images (hero.png 2.1MB, chef.png 1.9MB, grill.png 2.2MB, sushi.png 2MB) → convert to WebP:
+
+
+# Install cwebp (free Google tool) and run:
+cwebp -q 80 hero.png -o hero.webp   # ~200KB instead of 2.1MB
+Or use squoosh.app in the browser — drag, convert to WebP at 80% quality, download.
+
+logo.png (697 KB) → should be an SVG or tiny PNG, logos are vector graphics by nature.
+
+In your HTML, use <picture> with WebP + lazy loading:
+
+
+<picture>
+  <source srcset="/img/hero.webp" type="image/webp">
+  <img src="/img/hero.png" alt="..." loading="lazy">
+</picture>
+Add loading="lazy" to every image that isn't in the first viewport.
+
+2. 14 separate CSS files — render-blocking
+Each <link> tag blocks rendering until the file downloads. Since you have no bundler, the quickest fix is to concatenate them server-side in PHP. In your header.php, replace the 14 <link> tags with one:
+
+
+<!-- In header.php, replace all 14 <link> tags with: -->
+<link rel="stylesheet" href="/css/bundle.css">
+Then create a bundle.css that just imports everything, or create a small PHP endpoint that merges and caches them:
+
+
+// public/css/bundle.php
+header('Content-Type: text/css');
+header('Cache-Control: max-age=86400');
+
+$files = [
+    __DIR__ . '/variables.css',
+    __DIR__ . '/global.css',
+    __DIR__ . '/../components/header/header.css',
+    // ... all 14 files
+];
+foreach ($files as $f) echo file_get_contents($f);
+3. No caching headers
+Your server sends no cache headers, so every page reload re-downloads everything. Add this to your .htaccess (if Apache) or your PHP server config:
+
+
+# .htaccess
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType text/css "access plus 1 week"
+  ExpiresByType application/javascript "access plus 1 week"
+</IfModule>
+Expected result
+Fix	Before	After
+Social icons → SVG	4× 2.2 MB = 8.8 MB	~4 KB
+Hero/chef/grill/sushi → WebP 80%	~8.3 MB	~800 KB
+CSS → single request	14 requests	1 request
+Lazy loading off-screen images	loads all at once	loads on scroll
+The image compression alone should cut load time from ~4s to under 1s. Start there — it requires zero code changes to your PHP, just replacing the files.
