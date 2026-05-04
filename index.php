@@ -7,7 +7,7 @@ require_once 'components/ouverture/ouverture.php';
 require_once 'components/philosophie/philosophie.php';
 require_once 'components/histoire/histoire.php';
 require_once 'components/reseaux/reseaux.php';
-require_once 'components/reservation/reservation.php';
+
 require_once 'components/contact/contact.php';
 require_once 'components/footer/footer.php';
 ?>

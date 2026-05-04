@@ -9,7 +9,4 @@
   <a href="#reservation" class="nav-reserver">
     <span>RÉSERVEZ</span>
   </a>
-  <a href="/admin/connexion.php" class="nav-connection">
-    <span>Connection</span>
-  </a>
 </nav>
