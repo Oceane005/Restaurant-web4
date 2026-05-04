@@ -6,10 +6,10 @@
     <li><a href="/pages/desserts/" class="nav-link">Desserts</a></li>
     <li><a href="/pages/cave-a-vin/" class="nav-link">Cave a vin</a></li>
   </ul>
-  <a href="#contact" class="nav-reserver">
+  <a href="#reservation" class="nav-reserver">
     <span>RÉSERVEZ</span>
   </a>
-  <a href="/admin/adm-connection.php" class="nav-connection">
+  <a href="/admin/connexion.php" class="nav-connection">
     <span>Connection</span>
   </a>
 </nav>

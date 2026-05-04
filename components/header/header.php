@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="/components/histoire/histoire.css">
   <link rel="stylesheet" href="/components/reseaux/reseaux.css">
   <link rel="stylesheet" href="/components/contact/contact.css">
+  <link rel="stylesheet" href="/components/reservation/reservation.css">
   <link rel="stylesheet" href="/components/footer/footer.css">
   <link rel="stylesheet" href="/components/menu-hero/menu-hero.css">
   <link rel="stylesheet" href="/components/menu-items/menu-items.css">

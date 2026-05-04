@@ -6,7 +6,7 @@
 
   <div class="lanternes-scene">
 
-    <!-- MOBILE + TABLET -->
+    <!-- MOBILE + TABLETTE -->
     <div class="scene-mobile">
       <div class="corde-row">
         <svg viewBox="0 0 400 70" preserveAspectRatio="none">
@@ -43,7 +43,7 @@
       </div>
     </div>
 
-    <!-- DESKTOP -->
+    <!-- BUREAU -->
     <div class="scene-desktop">
       <svg class="corde-desktop" viewBox="0 0 1000 90" preserveAspectRatio="none">
         <path d="M-10,55 Q250,75 500,50 Q750,25 1010,18"

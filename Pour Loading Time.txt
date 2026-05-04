@@ -28,12 +28,12 @@ Add loading="lazy" to every image that isn't in the first viewport.
 Each <link> tag blocks rendering until the file downloads. Since you have no bundler, the quickest fix is to concatenate them server-side in PHP. In your header.php, replace the 14 <link> tags with one:
 
 
-<!-- In header.php, replace all 14 <link> tags with: -->
+<!-- Dans header.php, remplacez les 14 balises <link> par : -->
 <link rel="stylesheet" href="/css/bundle.css">
 Then create a bundle.css that just imports everything, or create a small PHP endpoint that merges and caches them:
 
 
-// public/css/bundle.php
+// public/css/bundle.php (exemple d'endpoint PHP qui concatène les fichiers CSS)
 header('Content-Type: text/css');
 header('Cache-Control: max-age=86400');
 
@@ -41,7 +41,7 @@ $files = [
     __DIR__ . '/variables.css',
     __DIR__ . '/global.css',
     __DIR__ . '/../components/header/header.css',
-    // ... all 14 files
+    // ... les 14 fichiers
 ];
 foreach ($files as $f) echo file_get_contents($f);
 3. No caching headers
