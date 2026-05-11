@@ -3,7 +3,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background: var(--dark);
+  background: var(--dark-mid);
   color: var(--text);
   font-family: var(--font-body);
   font-size: 15px;
