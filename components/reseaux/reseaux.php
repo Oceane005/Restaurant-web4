@@ -17,11 +17,11 @@
         </svg>
 
         <a href="#" class="lanterne" style="--x:16%; --rope-h:30px;">
-          <img src="/Restaurant-web4/img/insta.png" alt="Instagram">
+          <img src="/img/insta.png" alt="Instagram">
         </a>
 
         <a href="#" class="lanterne" style="--x:72%; --rope-h:46px;">
-          <img src="/Restaurant-web4/img/facebook.png" alt="Facebook">
+          <img src="/img/facebook.png" alt="Facebook">
         </a>
       </div>
 
@@ -34,11 +34,11 @@
         </svg>
 
         <a href="#" class="lanterne" style="--x:28%; --rope-h:44px;">
-          <img src="/Restaurant-web4/img/twitter.png" alt="Twitter / X">
+          <img src="/img/twitter.png" alt="Twitter / X">
         </a>
 
         <a href="#" class="lanterne" style="--x:78%; --rope-h:16px;">
-          <img src="/Restaurant-web4/img/tiktok.png" alt="TikTok">
+          <img src="/img/tiktok.png" alt="TikTok">
         </a>
       </div>
     </div>
@@ -53,19 +53,19 @@
       </svg>
 
       <a href="#" class="lanterne" style="--x:8%; --rope-h:62px;">
-        <img src="/Restaurant-web4/img/insta.png" alt="Instagram">
+        <img src="/img/insta.png" alt="Instagram">
       </a>
 
       <a href="#" class="lanterne" style="--x:34%; --rope-h:48px;">
-        <img src="/Restaurant-web4/img/facebook.png" alt="Facebook">
+        <img src="/img/facebook.png" alt="Facebook">
       </a>
 
       <a href="#" class="lanterne" style="--x:63%; --rope-h:30px;">
-        <img src="/Restaurant-web4/img/twitter.png" alt="Twitter / X">
+        <img src="/img/twitter.png" alt="Twitter / X">
       </a>
 
       <a href="#" class="lanterne" style="--x:88%; --rope-h:12px;">
-        <img src="/Restaurant-web4/img/tiktok.png" alt="TikTok">
+        <img src="/img/tiktok.png" alt="TikTok">
       </a>
     </div>
 
