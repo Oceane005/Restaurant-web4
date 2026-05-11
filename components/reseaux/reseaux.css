@@ -19,11 +19,13 @@
 .reseaux-line1 {
   font-size: clamp(22px, 7vw, 48px);
   padding-bottom: 10px;
+  animation: neonPulse 3s ease-in-out infinite;
 }
 
 .reseaux-line2 {
   font-size: clamp(18px, 5.5vw, 38px);
   opacity: 0.85;
+  animation: neonPulse 3s ease-in-out infinite;
 }
 
 .lanternes-scene {
@@ -163,8 +165,8 @@
     display: block;
   }
    .corde-row .lanterne img {
-    width: 200px;
-    height: 10000px;
+    width: 650px;
+    height: 650px;
   }
 }
 

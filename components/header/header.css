@@ -10,7 +10,7 @@
   transition: background 0.3s;
 }
 
-.logo { height: 38px; width: auto; display: block; }
+.logo { height: 80px; width: auto; display: block; }
 
 .burger {
   background: none;
@@ -33,6 +33,6 @@
   transition: 0.3s;
 }
 
-@media (min-width: 480px)  { .header { padding: 14px 28px; } .logo { height: 42px; } }
-@media (min-width: 768px)  { .header { padding: 16px 40px; } .logo { height: 46px; } }
-@media (min-width: 1200px) { .header { padding: 20px 64px; } .logo { height: 52px; } }
+
+@media (min-width: 768px)  { .header { padding: 16px 40px; } .logo { height: 100px; } }
+@media (min-width: 1200px) { .header { padding: px px; } .logo { height: 100px; } }
