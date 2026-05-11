@@ -3,156 +3,177 @@
    768px | 1200px
    ============================================ */
 
+/* Section principale qui contient tout le menu */
 .menu-section {
-  position: relative;
-  background: #06070f;
-  overflow: hidden;
+  position: relative; /* Permet de positionner le watermark en absolute par rapport à cette section */
+  background: #06070f; /* Fond noir profond */
+  overflow: hidden; /* Cache ce qui dépasse (ex: watermark) */
+  padding: 24px 16px; /* Espace intérieur autour de la liste */
 }
 
-/* Watermark daruma */
+/* Texture daruma en arrière-plan qui se répète */
 .menu-watermark {
-  position: absolute;
-  inset: 0;
-  background-image: url('/Restaurant-web4/img/texture_daruma.png');
-  background-repeat: repeat;
-  background-size: 200px;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.05;
+  position: absolute; /* Se positionne par rapport à .menu-section */
+  inset: 0; /* Couvre toute la section (top/right/bottom/left: 0) */
+  background-image: url('/Restaurant-web4/img/texture_daruma.png'); /* Image de fond */
+  background-repeat: repeat; /* L'image se répète pour couvrir tout l'espace */
+  background-size: 200px; /* Taille de chaque daruma */
+  pointer-events: none; /* Le watermark ne bloque pas les clics */
+  z-index: 0; /* Derrière tout le contenu */
+  opacity: 0.05; /* Très transparent pour ne pas dominer */
 }
+/* Cache les balises img du watermark (on utilise background-image à la place) */
 .menu-watermark img { display: none; }
 
-/* Liste */
+/* Liste qui contient tous les items du menu */
 .menu-list {
-  list-style: none;
+  list-style: none; /* Enlève les puces de liste */
   margin: 0;
   padding: 0;
-  position: relative;
-  z-index: 1;
+  position: relative; /* Permet au z-index de fonctionner */
+  z-index: 1; /* Devant le watermark */
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Les items s'empilent verticalement */
+  gap: 24px; /* Espace entre chaque item */
 }
 
-/* Item */
+/* Chaque item du menu (un plat) */
 .menu-item {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  padding: 24px 16px;
-  gap: 12px;
-  opacity: 0;
-  position: relative;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
-}
-
-/* Texte à gauche, image à droite par défaut */
-.menu-item-content {
-  order: 1;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center; /* Centre verticalement le contenu et l'image */
+  opacity: 0; /* Invisible au départ — devient visible avec l'animation */
+  position: relative; /* Permet de positionner l'image en absolute par rapport à l'item */
 }
 
+/* Carte noire qui contient le nom, description et prix */
+.menu-item-content {
+  order: 1; /* Apparaît en premier (texte à gauche) */
+  display: flex;
+  flex-direction: column; /* Nom, desc et prix s'empilent verticalement */
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.75); /* Fond noir semi-transparent */
+  border-radius: 10px; /* Coins arrondis */
+  padding: 24px 16px;
+  padding-right: clamp(160px, 45vw, 270px); /* Espace à droite pour que l'image ne cache pas le texte */
+  width: 100%; /* Prend toute la largeur de l'item */
+  position: relative;
+  z-index: 1; /* Derrière l'image */
+}
+
+/* Image du plat positionnée par-dessus la carte */
 .menu-item-img-wrap {
   order: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: absolute; /* Sort du flux normal pour chevaucher la carte */
+  right: -20px; /* Légèrement à l'extérieur à droite */
+  top: 50%; /* Centré verticalement */
+  transform: translateY(-50%); /* Ajustement pour centrage parfait */
+  z-index: 2; /* Devant la carte noire */
 }
 
-/* Alterné : image à gauche, texte à droite */
-.menu-item--reverse .menu-item-content  { order: 2; }
-.menu-item--reverse .menu-item-img-wrap { order: 1; }
+/* Items alternés : image à gauche, texte à droite */
+.menu-item--reverse .menu-item-content {
+  padding-right: 16px; /* Remet un padding normal à droite */
+  padding-left: clamp(160px, 45vw, 270px); /* Espace à gauche pour l'image */
+}
+.menu-item--reverse .menu-item-img-wrap {
+  right: auto;
+  left: -20px; /* Image à gauche légèrement à l'extérieur */
+}
 
-/* Nom */
+/* Nom du plat */
 .menu-item-nom {
   font-family: 'Noto Serif JP', serif;
   font-style: italic;
   font-weight: 400;
-  font-size: clamp(16px, 5vw, 22px);
-  color: #e8e8f0;
+  font-size: clamp(16px, 5vw, 22px); /* S'adapte à la taille d'écran */
+  color: #e8e8f0; /* Blanc cassé */
   line-height: 1.2;
-  margin: 0 0 6px 0;
+  margin: 0 0 6px 0; /* Espace sous le nom */
 }
 
-/* Description */
+/* Description du plat */
 .menu-item-desc {
   font-family: 'Barlow', sans-serif;
   font-weight: 300;
   font-size: clamp(10px, 2.8vw, 12px);
-  color: #8888aa;
+  color: #8888aa; /* Gris-mauve discret */
   line-height: 1.5;
-  margin: 0 0 12px 0;
+  margin: 0 0 12px 0; /* Espace sous la description */
 }
 
-/* Prix */
+/* Prix avec effet néon contour (vide au centre) */
 .menu-item-prix {
   font-family: 'Anton', sans-serif;
   font-size: clamp(48px, 16vw, 64px);
-  color: #ff2d78;
+  color: transparent; /* Centre du texte vide */
+  -webkit-text-stroke: 2px #ff2d78; /* Contour rose néon */
   text-shadow:
-    0 0 8px rgba(255, 45, 120, 1),
-    0 0 25px rgba(255, 45, 120, 0.7),
-    0 0 50px rgba(255, 45, 120, 0.35);
+    0 0 8px rgba(255, 45, 120, 0.8), /* Lueur proche */
+    0 0 25px rgba(255, 45, 120, 0.5), /* Lueur moyenne */
+    0 0 50px rgba(255, 45, 120, 0.3); /* Lueur lointaine */
   display: block;
   line-height: 1;
   letter-spacing: -1px;
 }
 
-/* Image ronde */
+/* Photo du plat en cercle */
 .menu-item-img {
-  width: clamp(130px, 46vw, 170px);
-  height: clamp(130px, 46vw, 170px);
-  object-fit: cover;
-  border-radius: 50%;
+  width: clamp(160px, 45vw, 260px); /* Taille flexible selon l'écran */
+  height: clamp(160px, 45vw, 260px);
+  object-fit: cover; /* L'image remplit le cercle sans se déformer */
+  border-radius: 50%; /* Forme ronde */
   display: block;
-  filter: drop-shadow(0 4px 20px rgba(0,0,0,0.6));
-  transition: transform 0.4s ease;
+  filter: drop-shadow(0 4px 20px rgba(0,0,0,0.6)); /* Ombre sous l'image */
+  transition: transform 0.4s ease; /* Animation douce au hover */
 }
 
+/* Légère zoom au survol de l'image */
 .menu-item:hover .menu-item-img {
   transform: scale(1.05);
 }
 
-/* 768px */
+/* ── Tablette 768px ── */
 @media (min-width: 768px) {
-  .menu-section { padding: 0 32px; }
-  .menu-list    { max-width: 640px; margin: 0 auto; }
+  .menu-section { padding: 32px 32px; }
+  .menu-list    { max-width: 640px; margin: 0 auto; } /* Centre la liste */
 
-  .menu-item { padding: 28px 24px; gap: 16px; }
+  .menu-item-content { padding: 28px 24px; padding-right: clamp(220px, 32vw, 290px); }
+  .menu-item--reverse .menu-item-content { padding-right: 24px; padding-left: clamp(220px, 32vw, 290px); }
 
   .menu-item-nom  { font-size: clamp(20px, 3.2vw, 28px); }
   .menu-item-desc { font-size: clamp(11px, 1.5vw, 13px); }
   .menu-item-prix { font-size: clamp(60px, 11vw, 80px); }
 
   .menu-item-img {
-    width: clamp(160px, 26vw, 210px);
-    height: clamp(160px, 26vw, 210px);
+    width: clamp(200px, 32vw, 280px);
+    height: clamp(200px, 32vw, 280px);
   }
 }
 
-/* 1200px */
+/* ── Desktop 1200px ── */
 @media (min-width: 1200px) {
-  .menu-section { padding: 0 60px; }
+  .menu-section { padding: 40px 60px; }
   .menu-list    { max-width: 900px; margin: 0 auto; }
 
-  .menu-item { padding: 36px 40px; gap: 24px; }
+  .menu-item-content { padding: 36px 40px; padding-right: clamp(260px, 24vw, 320px); }
+  .menu-item--reverse .menu-item-content { padding-right: 40px; padding-left: clamp(260px, 24vw, 320px); }
 
   .menu-item-nom  { font-size: clamp(24px, 2.4vw, 32px); }
   .menu-item-desc { font-size: clamp(12px, 1.1vw, 15px); }
   .menu-item-prix { font-size: clamp(72px, 7.5vw, 96px); }
 
   .menu-item-img {
-    width: clamp(200px, 19vw, 250px);
-    height: clamp(200px, 19vw, 250px);
+    width: clamp(240px, 22vw, 300px);
+    height: clamp(240px, 22vw, 300px);
   }
 }
 
-/* Animation */
+/* Animation d'apparition au scroll */
 @keyframes menuItemIn {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(16px); } /* Part d'en bas, invisible */
+  to   { opacity: 1; transform: translateY(0); } /* Monte et devient visible */
 }
+/* Déclenché par JavaScript quand l'item entre dans l'écran */
 .menu-item.visible {
   animation: menuItemIn 0.5s ease both;
 }
